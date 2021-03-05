@@ -1,3 +1,25 @@
+// current day -> top of calendar
+
+var currentDay = $("#currentDay");
+var currentTime = moment().hour();
+var tasks = [$("#8").text(), $("#9").text(), $("#10").text(), $("#11").text(), $("#12").text(), $("#1").text(), $("#2").text(), $("#3").text(), $("#4").text(), $("#5").text()];
+
+function headerTime() {
+    var today = moment().format("dddd, MMMM Do h:mm a");
+    currentDay.text(today);
+};
+
+function loadSavedTasks() {
+    for (var i = 0; i < tasks.length; i++) {
+        var task = JSON.parse(localStorage.getItem("task${i}"));
+        $("#task${i}").val(task);
+    }
+};
+
+function saveButton(element) {
+    var 
+}
+
 // button
     // get a reference to all of the save buttons $(".saveBtn")
     // 01-Ins_jQuery-Elements
@@ -39,10 +61,10 @@
     // -> get a reference to the id of parent()
     // -> .val() = localStorage.getItem(parentID)
 
-// current day -> top of calendar
-    // moment library - .format()
-    // 25-Ins_Moment-Format
+
 
 // call the colorCoding function
     // setInterval -> .15000
     // unit 04
+
+    headerTime();
