@@ -2,7 +2,7 @@
 
 var currentDay = $("#currentDay");
 var currentTime = moment().hour();
-var tasks = [$("#8").text(), $("#9").text(), $("#10").text(), $("#11").text(), $("#12").text(), $("#13").text(), $("#14").text(), $("#15").text(), $("#16").text(), $("#17").text()];
+var tasks = [$("#0").text(), $("#1").text(), $("#2").text(), $("#3").text(), $("#4").text(), $("#5").text(), $("#6").text(), $("#7").text(), $("#8").text(), $("#9").text()];
 
 function headerTime() {
     var today = moment().format("dddd, MMMM Do h:mm a");
@@ -10,27 +10,34 @@ function headerTime() {
 };
 
 function loadSavedTasks() {
-    for (var i = 8; i < 18; i++) {
-        var task = JSON.parse(localStorage.getItem("i"));
+    for (var i = 0; i < tasks.length; i++) {
+        var task = JSON.parse(localStorage.getItem("task${i}"));
         $("#i").val(task);
     }
 };
 
 function colorCoding() {
-    for (var i = 8; i < 18; i++) {
+    for (var i = 0; i < tasks.length; i++) {
         var hour = (moment(tasks[i], "H a"));
-        if (currentTime == hour) {
-            document.getElementById(i).classList.add("present");  
+        var currentHour = moment(currentTime, "H a");
+        if (currentHour.isSame(hour)) {
+            document.getElementById(i+10).classList.add("present");  
         }
-        else if (currentTime > hour) {
-            document.getElementById(i).classList.add("past");
+        else if (currentHour.isAfter(hour)) {
+            document.getElementById(i+10).classList.add("past");
         }
         else {
-            document.getElementById(i).classList.add("future");
+            (currentHour.isBefore(hour))
+            document.getElementById(i+10).classList.add("future");
         }
     }
-}
+};
 
+function saveButton(element) {
+    var save = $(element).parent().prev().children().attr("id");
+    var task = $("#"+save).val();
+    localStorage.setItem("${save}", JSON.stringify("${task}"));
+};
 
 
 // button
@@ -83,7 +90,8 @@ function colorCoding() {
 function init() {
     loadSavedTasks();
     headerTime();
-    colorCoding();
+    setInterval (colorCoding(), 1500);
+    saveButton();
 }
     
 init();
