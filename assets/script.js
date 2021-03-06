@@ -2,7 +2,7 @@
 
 var currentDay = $("#currentDay");
 var currentTime = moment().hour();
-var tasks = [$("#8").text(), $("#9").text(), $("#10").text(), $("#11").text(), $("#12").text(), $("#1").text(), $("#2").text(), $("#3").text(), $("#4").text(), $("#5").text()];
+var tasks = [$("#8").text(), $("#9").text(), $("#10").text(), $("#11").text(), $("#12").text(), $("#13").text(), $("#14").text(), $("#15").text(), $("#16").text(), $("#17").text()];
 
 function headerTime() {
     var today = moment().format("dddd, MMMM Do h:mm a");
@@ -10,15 +10,28 @@ function headerTime() {
 };
 
 function loadSavedTasks() {
-    for (var i = 0; i < tasks.length; i++) {
-        var task = JSON.parse(localStorage.getItem("task${i}"));
-        $("#task${i}").val(task);
+    for (var i = 8; i < 18; i++) {
+        var task = JSON.parse(localStorage.getItem("i"));
+        $("#i").val(task);
     }
 };
 
-function saveButton(element) {
-    var 
+function colorCoding() {
+    for (var i = 8; i < 18; i++) {
+        var hour = (moment(tasks[i], "H a"));
+        if (currentTime == hour) {
+            document.getElementById(i).classList.add("present");  
+        }
+        else if (currentTime > hour) {
+            document.getElementById(i).classList.add("past");
+        }
+        else {
+            document.getElementById(i).classList.add("future");
+        }
+    }
 }
+
+
 
 // button
     // get a reference to all of the save buttons $(".saveBtn")
@@ -67,4 +80,10 @@ function saveButton(element) {
     // setInterval -> .15000
     // unit 04
 
+function init() {
+    loadSavedTasks();
     headerTime();
+    colorCoding();
+}
+    
+init();
