@@ -41,11 +41,11 @@ function colorCoding() {
 };
 
 // when save button is clicked, any text entered in field is saved.
-$(".saveBtn").on("click", handleSave)
+$(".btn-primary").on("click", handleSave)
 
 function handleSave(event){
-  var value = $(this).parent().siblings(".textarea").val();
-  var key = $(this).parent().siblings(".textarea").attr("id");
+  var value = $(this).siblings(".textarea").val();
+  var key = $(this).siblings(".textarea").attr("id");
   localStorage.setItem(key, value);
 }
 
