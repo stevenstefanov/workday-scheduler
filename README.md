@@ -10,23 +10,19 @@ This project is a note taker with which a user can see the current date and time
  
 ## Link to Deployed Project  
 
-https://stevenstefanov.github.io/workday-scheduler/
+https://stevenstefanov.github.io/workday-scheduler
 
-## What were the challenges?
-
-My biggest challenge was traversing the DOM to go from the save button to the textarea to save the input text to local storage. This was also one of my first times working with Bootstrap, so I was somewhat unfamiliar with it's classes. However, after reading some of the documentation, it was pretty easy to use.
-
-## Why did I decide to do this project?
+## Background
 
 This project was really interesting to develop. It is a very practical application as I constantly use my calendar to keep track of appointments and meetings in my personal and professional life. It was also really beneficial to explore the `moment()` library and how to best utilize it.
 
-## What I learned in the process?
+## Challenges
+
+My biggest challenge was traversing the DOM to go from the save button to the textarea to save the input text to local storage. This was also one of my first times working with Bootstrap, so I was somewhat unfamiliar with it's classes. However, after reading some of the documentation, it was pretty easy to use.
+
+## Learnings
 
 I learned a lot more about computer logic and flow of code. I learned how to traverse the DOM using the `.parent()` and `.sibling()` methods and I familiarized myself more with the `moment()` library.
-
-## What makes this project stand out?
-
-This project is a clean and really easy to use scheduler. It has a built-in time keeper, it identifies what hour of the day it is, and works very fast.
 
 ## Usage
 
